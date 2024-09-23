@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from datetime import date
 from app.bookings.router import router as router_booking
+from app.users.router import router as router_user
 
 
 class SUser(BaseModel):
@@ -16,4 +17,5 @@ class SHotel(BaseModel):
 
 app = FastAPI()
 app.include_router(router_booking)
+app.include_router(router_user)
 

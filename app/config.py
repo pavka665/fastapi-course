@@ -8,6 +8,9 @@ class Settings(BaseSettings):
     DB_PASS: str
     DB_NAME: str
 
+    SECRET_KEY: str
+    ALGORITHM: str
+
     @root_validator(skip_on_failure=True)
     def get_database_url(cls, v):
         v['DATABASE_URL'] = f'postgresql+asyncpg://{v["DB_USER"]}:{v["DB_PASS"]}@{v["DB_HOST"]}/{v["DB_NAME"]}'
